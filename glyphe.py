@@ -11,16 +11,16 @@ total_height = 1460 # 2 * 700 + 60
 
 new_image = Image.new('RGBA', (total_width, total_height), (255, 255, 255))
 
-offset = (100, 20)
+offset = ( int(total_width / 2) - 700, 30)
 new_image.paste( Image.open(dir + 'icons/' + str(icons[0])), offset )
 
-offset = ( new_image.width - 800, 20 )
+offset = ( int(total_width / 2), 30 )
 new_image.paste( Image.open(dir + 'icons/' + icons[1]), offset )
 
-offset = (100, int(new_image.height / 2) + 20)
+offset = ( int(total_width / 2) - 700, int(new_image.height / 2) + 10)
 new_image.paste( Image.open(dir + 'icons/' + icons[2]), offset )
 
-offset = ( new_image.width - 800, int(new_image.height / 2) + 20 )
+offset = ( int(new_image.width / 2), int(new_image.height / 2) + 10 )
 new_image.paste( Image.open(dir + 'icons/' + icons[3]), offset )
 
 new_image.convert('P')
