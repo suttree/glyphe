@@ -2,6 +2,7 @@
 
 import os, random
 from PIL import Image
+from inky import InkyWHAT                                                                                                                                                           
 
 icons = random.sample(os.listdir("./icons/"), 4)
 print(icons)
@@ -23,3 +24,9 @@ offset = ( int(new_image.width / 2) + 20, int(new_image.height / 2) + 20 )
 new_image.paste( Image.open('./icons/' + icons[3]), offset )
 
 new_image.save('glyphe.png')
+
+inky_display = InkyWHAT("black")
+inky_display.set_border(inky_display.BLACK)
+
+inky_display.set_image(new_img)
+inky_display.show() 
