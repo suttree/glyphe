@@ -7,8 +7,9 @@ from inky import InkyWHAT
 icons = random.sample(os.listdir("./icons/"), 4)
 print(icons)
 
-total_width = 700 * 2 + 20 * 3 # two 700px icons plus 20px padding on the left, right and middle
-total_height = total_width # same, we want to make a square
+total_width = 1947 # to make this 400/300 on resize
+total_height = 1460 # 2 * 700 + 60
+
 new_image = Image.new('RGBA', (total_width, total_height), (0, 0, 0))
 
 offset = (20, 20)
@@ -25,8 +26,31 @@ new_image.paste( Image.open('./icons/' + icons[3]), offset )
 
 new_image.save('glyphe.png')
 
-inky_display = InkyWHAT("black")
-inky_display.set_border(inky_display.BLACK)
+img = Image.open('./glyphe.png')
+w, h = img.size
 
-inky_display.set_image(new_img)
+h_new = 300
+w_new = int((float(w) / h) * h_new)
+w_cropped = 400
+
+img = img.resize((w_new, h_new), resample=Image.LANCZOS)
+
+x0 = (w_new - w_cropped) / 2
+x1 = x0 + w_cropped
+y0 = 0
+y1 = h_new
+
+img = img.crop((x0, y0, x1, y1))
+
+pal_img = Image.new("P", (1, 1))
+pal_img.putpalette((255, 255, 255, 0, 0, 0, 255, 0, 0) + (0, 0, 0) * 252)
+
+img = img.convert("RGB").quantize(palette=pal_img)
+
+inky_display = InkyWHAT("black")
+inky_display.set_border(inky_display.WHITE)
+
+inky_display.set_image(img)
 inky_display.show() 
+
+img.save('glype-resized.png')
