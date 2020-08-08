@@ -4,24 +4,23 @@ dir = '/home/pi/src/glyphe/'
 
 import os, random
 from PIL import Image
-icons = random.sample(os.listdir(dir + 'icons/'), 4),
-
+icons = random.sample(os.listdir(dir + 'icons/'), 4)
 
 total_width = 1947 # to make this 400/300 on resize
 total_height = 1460 # 2 * 700 + 60
 
-new_image = Image.new('RGBA', (total_width, total_height), (220, 220, 220))
+new_image = Image.new('RGBA', (total_width, total_height), (255, 255, 255))
 
-offset = (20, 20)
-new_image.paste( Image.open(dir + 'icons/' + icons[0]), offset )
+offset = (100, 20)
+new_image.paste( Image.open(dir + 'icons/' + str(icons[0])), offset )
 
-offset = ( int(new_image.width / 2) + 253, 20 )
+offset = ( new_image.width - 800, 20 )
 new_image.paste( Image.open(dir + 'icons/' + icons[1]), offset )
 
-offset = (20, int(new_image.height / 2) + 20)
+offset = (100, int(new_image.height / 2) + 20)
 new_image.paste( Image.open(dir + 'icons/' + icons[2]), offset )
 
-offset = ( int(new_image.width / 2) + 253, int(new_image.height / 2) + 20 )
+offset = ( new_image.width - 800, int(new_image.height / 2) + 20 )
 new_image.paste( Image.open(dir + 'icons/' + icons[3]), offset )
 
 new_image.convert('P')
