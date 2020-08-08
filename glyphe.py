@@ -5,6 +5,7 @@ dir = '/home/pi/src/glyphe/'
 import os, random
 from PIL import Image
 icons = random.sample(os.listdir(dir + 'icons/'), 4)
+print(icons)
 
 total_width = 1947 # to make this 400/300 on resize
 total_height = 1460 # 2 * 700 + 60
@@ -30,6 +31,7 @@ new_image.save(dir + 'saved/glyphe.png')
 img = Image.open(dir + 'saved/glyphe.png')
 img = img.resize((400, 300), resample=Image.LANCZOS)
 img = img.quantize() 
+img.save(dir + 'saved/glyphe-resized.png')
 
 from inky import InkyWHAT
 inky_display = InkyWHAT("black")
@@ -38,4 +40,3 @@ inky_display.set_border(inky_display.WHITE)
 inky_display.set_image(img)
 inky_display.show() 
 
-img.save(dir + 'saved/glyphe-resized.png')
