@@ -28,20 +28,7 @@ new_image.save(dir + 'saved/glyphe.png')
 
 # Now resize the image to 400x300 and save it for eink display
 img = Image.open(dir + 'saved/glyphe.png')
-w, h = img.size
-
-h_new = 300
-w_new = int((float(w) / h) * h_new)
-w_cropped = 400
-
-img = img.resize((w_new, h_new), resample=Image.LANCZOS)
-
-x0 = (w_new - w_cropped) / 2
-x1 = x0 + w_cropped
-y0 = 0
-y1 = h_new
-
-img = img.crop((x0, y0, x1, y1))
+img = img.resize((400, 300), resample=Image.LANCZOS)
 img = img.quantize() 
 
 from inky import InkyWHAT
