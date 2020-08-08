@@ -47,11 +47,11 @@ pal_img.putpalette((255, 255, 255, 0, 0, 0, 255, 0, 0) + (0, 0, 0) * 252)
 #img = img.convert("RGB").quantize(palette=pal_img)
 img = img.quantize() 
 
-#from inky import InkyWHAT
-#inky_display = InkyWHAT("black")
-#inky_display.set_border(inky_display.WHITE)
-#
-#inky_display.set_image(img)
-#inky_display.show() 
+from inky import InkyWHAT
+inky_display = InkyWHAT("black")
+inky_display.set_border(inky_display.WHITE)
+
+inky_display.set_image(img)
+inky_display.show() 
 
 img.save('glyphe-resized.png')
