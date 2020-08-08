@@ -8,18 +8,18 @@ print(icons)
 total_width = 1947 # to make this 400/300 on resize
 total_height = 1460 # 2 * 700 + 60
 
-new_image = Image.new('RGBA', (total_width, total_height), (255, 255, 255))
+new_image = Image.new('RGBA', (total_width, total_height), (220, 220, 220))
 
 offset = (20, 20)
 new_image.paste( Image.open('./icons/' + icons[0]), offset )
 
-offset = ( int(new_image.width / 2) + 20, 20 )
+offset = ( int(new_image.width / 2) + 253, 20 )
 new_image.paste( Image.open('./icons/' + icons[1]), offset )
 
 offset = (20, int(new_image.height / 2) + 20)
 new_image.paste( Image.open('./icons/' + icons[2]), offset )
 
-offset = ( int(new_image.width / 2) + 20, int(new_image.height / 2) + 20 )
+offset = ( int(new_image.width / 2) + 253, int(new_image.height / 2) + 20 )
 new_image.paste( Image.open('./icons/' + icons[3]), offset )
 
 new_image.convert('P')
