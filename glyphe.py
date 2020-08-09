@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#! /usr/bin/env python3
 
 dir = '/home/pi/src/glyphe/'
 
@@ -32,8 +32,8 @@ img = img.resize((212, 104), resample=Image.LANCZOS)
 img = img.quantize() 
 img.save(dir + 'saved/glyphe-resized.png')
 
-from inky import InkyWHAT
-inky_display = InkyWHAT("black")
+from inky import InkyPHAT
+inky_display = InkyPHAT("black")
 inky_display.set_border(inky_display.WHITE)
 
 inky_display.set_image(img)
