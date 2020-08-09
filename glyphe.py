@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 
 dir = '/home/pi/src/glyphe/'
+#dir = './'
 
 import os, random
 from PIL import Image
@@ -9,19 +10,17 @@ print(icons)
 
 # The inkyphat dimensions are 212x104
 # We'll stack three 700px in a line to create a 2100x1030 canvas, and resize that down later
-total_width = 2100
-total_height = 1030
+# WIP: stack two 700px in a line with a 1427x700 canvas, then resize
+total_width = 1427
+total_height = 700
 
 new_image = Image.new('RGBA', (total_width, total_height), (255, 255, 255))
 
-offset = (0, 0)
-new_image.paste( Image.open(dir + 'icons/' + str(icons[0])), offset )
+offset = ( int(total_width/2) - 700, 0)
+new_image.paste( Image.open(dir + 'icons/' + icons[0]), offset )
 
-offset = (700, 0)
+offset = ( int(total_width) / 2, 0) 
 new_image.paste( Image.open(dir + 'icons/' + icons[1]), offset )
-
-offset = (1400, 0) 
-new_image.paste( Image.open(dir + 'icons/' + icons[2]), offset )
 
 new_image.convert('P')
 new_image.save(dir + 'saved/glyphe.png')
@@ -38,4 +37,3 @@ inky_display.set_border(inky_display.WHITE)
 
 inky_display.set_image(img)
 inky_display.show() 
-
