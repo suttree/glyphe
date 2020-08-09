@@ -5,7 +5,7 @@ dir = '/home/pi/src/glyphe/'
 
 import os, random
 from PIL import Image
-icons = random.sample(os.listdir(dir + 'icons/'), 3)
+icons = random.sample(os.listdir(dir + 'icons/'), 2)
 print(icons)
 
 # The inkyphat dimensions are 212x104
@@ -16,10 +16,10 @@ total_height = 700
 
 new_image = Image.new('RGBA', (total_width, total_height), (255, 255, 255))
 
-offset = ( int(total_width/2) - 700, 0)
+offset = ( int(total_width / 2) - 700, 0)
 new_image.paste( Image.open(dir + 'icons/' + icons[0]), offset )
 
-offset = ( int(total_width) / 2, 0) 
+offset = ( int(total_width / 2), 0) 
 new_image.paste( Image.open(dir + 'icons/' + icons[1]), offset )
 
 new_image.convert('P')
