@@ -2,7 +2,7 @@
 
 dir = '/home/pi/src/glyphe/'
 
-import os, random, getopt, pickle
+import os, sys, random, getopt, pickle
 from PIL import Image
 
 def setup():
@@ -15,6 +15,8 @@ def glyphe():
   icons = pickle.load( open( "glyphes.pickle", "rb" ) )
   print(icons)
   icons.insert(0, icons.pop()) # put the last element at the front
+  pickle.dump( icons, open( "glyphes.pickle", "wb" ) )
+  print(icons)
 
   total_width = 1947 # to make this 400/300 on resize
   total_height = 1460 # 2 * 700 + 60
@@ -68,3 +70,6 @@ def main(argv):
   except getopt.GetoptError:
     usage()
     sys.exit(2)
+
+if __name__ == "__main__":
+  main(sys.argv[1:])
