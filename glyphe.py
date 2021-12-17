@@ -12,6 +12,7 @@ def glyphe():
   # Load the icons and rotate them each time. This gives us
   # a horoscope which rotates during the day, potentially 
   # making us think differently about their meaning
+  print("Starting...")
   icons = pickle.load( open( "glyphes.pickle", "rb" ) )
   print(icons)
   icons.insert(0, icons.pop()) # put the last element at the front
@@ -50,6 +51,7 @@ def glyphe():
 
   inky_display.set_image(img)
   inky_display.show() 
+  print("Done!")
 
 def usage():
   print("glyphe.py -h (help) -s (setup)")

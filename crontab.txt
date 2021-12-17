@@ -22,6 +22,9 @@
 #
 # m h  dom mon dow   command
 @reboot cd /home/pi/src/glyphe && /usr/bin/env python3 /home/pi/src/glyphe/glyphe.py -s > /tmp/cron.log 2>&1
+@reboot cd /home/pi/src/glyphe && git pull >> /tmp/cron.log 2>&1
 
-0 0 * * * cd /home/pi/src/glyphe && /usr/bin/env python3 /home/pi/src/glyphe/glyphe.py -s > /tmp/cron.log 2>&1 # daily horoscope generator
-0 */6 * * * cd /home/pi/src/glyphe && /usr/bin/env python3 /home/pi/src/glyphe/glyphe.py > /tmp/cron.log 2>&1  # display and rotate the reading
+0 0 * * * cd /home/pi/src/glyphe && git pull >> /tmp/cron.log 2>&1
+
+0 0 * * * cd /home/pi/src/glyphe && /usr/bin/env python3 /home/pi/src/glyphe/glyphe.py -s >> /tmp/cron.log 2>&1 # daily horoscope generator
+0 */6 * * * cd /home/pi/src/glyphe && /usr/bin/env python3 /home/pi/src/glyphe/glyphe.py >> /tmp/cron.log 2>&1  # display and rotate the reading
