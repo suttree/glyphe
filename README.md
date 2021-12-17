@@ -4,7 +4,7 @@
 
 A passive, emergent storytelling experience for the home - using a small e-ink screen to display a symbolic forecast.
 
-Each new pair of icons acts as a gentle prompt, offering you a chance to interpret the what the symbols could mean.
+Each new pair of icons acts as a gentle prompt, offering you a chance to interpret what the symbols reveal.
 
 ![Image of Glyphe](https://github.com/suttree/glyphe/blob/master/glyphe.jpg?raw=true)
 
