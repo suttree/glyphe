@@ -4,15 +4,15 @@ import os, sys, random, getopt, pickle
 from PIL import Image
 
 dir = '/home/pi/src/glyphe/'
-icon_dir = dir + 'icons/' + random.sample(['dark', 'light'], 1)[0] + '/'
+icon_dir = dir + 'icons/light/'
+#icon_dir = dir + 'icons/' + random.sample(['dark', 'light'], 1)[0] + '/'
 
 def setup():
   pickle.dump( random.sample(os.listdir(icon_dir), 4), open( "glyphes.pickle", "wb" ) )
 
 def glyphe():
   # Load the icons and rotate them each time. This gives us
-  # a horoscope which rotates during the day, potentially 
-  # making us think differently about their meaning
+  # a horoscope which rotates during the day.
   print("Starting...")
   icons = pickle.load( open( "glyphes.pickle", "rb" ) )
   print(icons)
