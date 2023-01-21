@@ -3,10 +3,11 @@
 import os, sys, random, getopt, pickle
 from PIL import Image
 
-dir = '/home/pi/src/glyphe/' + random.sample(['dark', 'light'], 1)[0] + '/'
+dir = '/home/pi/src/glyphe/'
+icon_dir = dir + 'icons/' + random.sample(['dark', 'light'], 1)[0] + '/'
 
 def setup():
-  pickle.dump( random.sample(os.listdir(dir + 'icons/'), 4), open( "glyphes.pickle", "wb" ) )
+  pickle.dump( random.sample(os.listdir(icon_dir), 4), open( "glyphes.pickle", "wb" ) )
 
 def glyphe():
   # Load the icons and rotate them each time. This gives us
@@ -25,16 +26,16 @@ def glyphe():
   new_image = Image.new('RGBA', (total_width, total_height), 255)
 
   offset = ( int(total_width / 2) - 700, 30)
-  new_image.paste( Image.open(dir + 'icons/' + str(icons[0])), offset )
+  new_image.paste( Image.open(icon_dir + str(icons[0])), offset )
 
   offset = ( int(total_width / 2), 30 )
-  new_image.paste( Image.open(dir + 'icons/' + icons[1]), offset )
+  new_image.paste( Image.open(icon_dir + icons[1]), offset )
 
   offset = ( int(total_width / 2) - 700, int(new_image.height / 2) + 10)
-  new_image.paste( Image.open(dir + 'icons/' + icons[2]), offset )
+  new_image.paste( Image.open(icon_dir + icons[2]), offset )
 
   offset = ( int(new_image.width / 2), int(new_image.height / 2) + 10 )
-  new_image.paste( Image.open(dir + 'icons/' + icons[3]), offset )
+  new_image.paste( Image.open(icon_dir + icons[3]), offset )
 
   new_image.convert('P')
   new_image.save(dir + 'saved/glyphe.png')
