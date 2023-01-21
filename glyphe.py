@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-dir = '/home/pi/src/glyphe/'
-
 import os, sys, random, getopt, pickle
 from PIL import Image
+
+dir = '/home/pi/src/glyphe/' + random.sample(['dark', 'light'], 1)[0] + '/'
 
 def setup():
   pickle.dump( random.sample(os.listdir(dir + 'icons/'), 4), open( "glyphes.pickle", "wb" ) )
