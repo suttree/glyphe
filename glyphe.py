@@ -5,6 +5,7 @@ from PIL import Image
 
 dir = '/home/pi/src/glyphe/'
 icon_dir = dir + 'icons/' + random.choice(['light', 'dark', 'misc']) + '/'
+print(icon_dir)
 
 def setup():
   pickle.dump( random.sample(os.listdir(icon_dir), 4), open( "glyphes.pickle", "wb" ) )
