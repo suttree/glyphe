@@ -4,7 +4,7 @@ import os, sys, random, getopt, pickle
 from PIL import Image
 
 dir = '/home/pi/src/glyphe/'
-icon_dir = dir + 'icons/' + random.choice(['light', 'dark', 'space', 'thin', 'geometry', 'fruit', 'eyes']) + '/'
+icon_dir = dir + 'icons/' + random.choice(['nounproject']) + '/'
 print(icon_dir)
 
 def setup():
