@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os, sys, random, getopt, pickle
+from datetime import datetime
 from PIL import Image
 
 dir = '/home/pi/src/glyphe/'
@@ -44,7 +45,9 @@ def glyphe():
   img = Image.open(dir + 'saved/glyphe.png')
   img = img.resize((400, 300), resample=Image.LANCZOS)
   img = img.quantize() 
-  img.save(dir + 'saved/glyphe-resized.png')
+
+  fname = datetime.now().strftime('%Y-%m-%d_%H-%M') + '-glyphe-resized.png'
+  img.save(dir + 'saved/' + fname)
 
   from inky import InkyWHAT
   inky_display = InkyWHAT("black")
