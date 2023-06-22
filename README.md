@@ -11,3 +11,6 @@ Each new pair of icons acts as a gentle prompt, offering you a chance to interpr
 Icons from The Noun Project
 - https://thenounproject.com/AliceNoir/
 - Alfredo, Hassan Khaled, roughen.line, Mohamed Mbarki, Xihn Studio, faisal, amy morgan, Brandon Shields, 
+
+Batch resize icons to 700x700px with sips:
+sips -Z 700 *.png
